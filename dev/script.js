@@ -61,7 +61,6 @@ export default class App extends Component{
     } else {
       newItems = [item]
     }
-    localStorage.removeItem('newArticles');
     localStorage.setItem('newArticles', JSON.stringify(newItems))
   }
   render() {
