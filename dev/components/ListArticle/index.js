@@ -1,28 +1,16 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 
 import Article from '../Article'
 
-export default class ListArticle extends Component {
-  constructor(props) {
-    super()
-    this.state = {
-      offset: 2,
-      step: 2,
-      articles: props.articles
-    }
-    this.loadArticles = this.loadArticles.bind(this)
-  }
-  loadArticles() {
-    const {offset, step} = this.state
+const ListArticle = (props) =>{
+  const [offset, setOffset] = useState( 2);
+  const step = 2;
+  const [articles] = useState(props.articles);
 
-    this.setState({
-      offset: offset+step
-    })
+  const loadArticles = () => {
+    setOffset(offset+step)
   }
-
-  render() {
-    const {articles, offset} = this.state;
-    const currentArticles = articles.slice(0, offset);
+   const currentArticles = articles.slice(0, offset);
 
     return(
       <>
@@ -35,11 +23,12 @@ export default class ListArticle extends Component {
 
         </div>
         {
-          articles.length > this.state.offset ? (
-            <button type="button" className="button" onClick={this.loadArticles}>Show more</button>
+          articles.length > offset ? (
+            <button type="button" className="button" onClick={loadArticles}>Show more</button>
           ): null
         }
       </>
     )
-  }
+
 }
+export default ListArticle

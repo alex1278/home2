@@ -1,10 +1,6 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-export default class PageTitle extends Component {
-  render() {
-    const {title} = this.props
-    return(
-      <h2 className="title">{title}</h2>
-    )
-  }
-}
+const PageTitle = (props) => (
+  <h2 className="title">{props.title}</h2>
+)
+export default PageTitle
