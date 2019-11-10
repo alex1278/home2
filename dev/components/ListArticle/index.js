@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
+import style from './style.scss'
 
 import Article from '../Article'
+import Button from '../Button'
 
 const ListArticle = (props) =>{
   const [offset, setOffset] = useState( 2);
@@ -14,7 +16,7 @@ const ListArticle = (props) =>{
 
     return(
       <>
-        <div className="articles">
+        <div className={style.articles}>
           {
             currentArticles.map((art)=>{
               return <Article key={art.id} title={art.title} text={art.text}/>
@@ -24,7 +26,7 @@ const ListArticle = (props) =>{
         </div>
         {
           articles.length > offset ? (
-            <button type="button" className="button" onClick={loadArticles}>Show more</button>
+            <Button className="button" onClick={loadArticles}>Show More</Button>
           ): null
         }
       </>

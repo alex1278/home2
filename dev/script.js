@@ -5,6 +5,8 @@ import ListArticle from './components/ListArticle'
 import PageTitle from './components/PageTitle'
 import Form from './components/Form'
 
+import './style.scss'
+
 const initialData = [
   {
     id:12,

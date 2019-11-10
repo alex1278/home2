@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import styles from './style.scss'
+
+import Button from '../Button'
 
 const Form = ({addNewProp}) => {
   const [title, setTitle] = useState('');
@@ -28,7 +31,7 @@ const Form = ({addNewProp}) => {
     setText('')
   }
     return(
-      <form className="form" onSubmit={submitNew}>
+      <form className={styles.form} onSubmit={submitNew}>
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -42,7 +45,7 @@ const Form = ({addNewProp}) => {
           id="text"
           value={text}
           onChange={handleChange}> </textarea>
-        <button className="button">Add new article</button>
+        <Button type="submit">Add new Article</Button>
       </form>
     )
 }
